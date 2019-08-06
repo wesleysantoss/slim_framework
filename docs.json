@@ -1,0 +1,94 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API para o slim mobile",
+        "version": "0.1"
+    },
+    "paths": {
+        "/slim_mobile/alunos": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Retorna todos os alunos cadastrados"
+                    }
+                }
+            }
+        },
+        "/slim_mobile/aluno": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "nome",
+                        "in": "path",
+                        "description": "Nome do aluno",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sobrenome",
+                        "in": "path",
+                        "description": "Sobrenome do aluno",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ra",
+                        "in": "path",
+                        "description": "RA do aluno",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cadastra um novo aluno"
+                    }
+                }
+            }
+        },
+        "/slim_mobile/aluno/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do aluno",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retorna os dados de um aluno especifico"
+                    }
+                }
+            },
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do aluno",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Exclui um aluno especifico do banco de dados"
+                    }
+                }
+            }
+        }
+    }
+}
